@@ -6,8 +6,7 @@ import { healthCheck } from "./app/Slices/healthcheck";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
-import lodder from "./assets/lodder.gif";
-import lightLoader from "./assets/lightLoader.gif";
+import loader from "./assets/loader.gif";
 
 function App() {
   const dispatch = useDispatch();
@@ -41,11 +40,12 @@ function App() {
 
   if (initialLoading)
     return (
-      <div className="h-screen w-full  overflow-y-auto dark:bg-black bg-white text-red-500 dark:text-white">
+      <div className="h-screen w-full  overflow-y-auto dark:bg-black bg-white text-gray-500 dark:text-white">
         <div className="flex flex-col items-center justify-center mt-64">
-          <img src={lightLoader} className="logo w-24  " alt="Loading..." />
+          {/* <img src={lightLoader} className="logo w-24  " alt="Loading..." /> */}
+          <img src={loader} className="logo w-24  " alt="Loading..." />
           <h1 className="text-3xl text-center mt-8 font-semibold">
-            Uchiha is Waiting...
+            Loading...
           </h1>
           {/* <h1 className="text-xl text-center mt-4">Refresh the page if it takes too long</h1> */}
         </div>

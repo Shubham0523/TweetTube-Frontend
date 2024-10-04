@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
@@ -42,10 +43,6 @@ import Dashboard from "./pages/Dashboard.jsx";
 import FeedTweets from "./pages/FeedTweets.jsx";
 import Support from "./pages/Support.jsx";
 import SearchResult from "./pages/SearchResult.jsx";
-
-
-
-
 
 
 const router = createBrowserRouter(

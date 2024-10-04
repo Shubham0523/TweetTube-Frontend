@@ -47,7 +47,7 @@ function VideoForm({ video = false }, ref) {
 
   async function handleVideo(data) {
     // OPTIMIZEME do not submit if details are not modified
-    console.log("data: ", data);
+    // console.log("data: ", data);
 
     let uploadPromise;
     if (video) {

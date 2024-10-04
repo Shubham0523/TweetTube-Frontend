@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
 import React from "react";
 import { Link } from "react-router-dom";
 import { EmptyVideo } from "../index";
@@ -133,7 +135,7 @@ function VideoGrid({ videos = [], loading = true, fetching = false, gridClassNam
                     <Link to={`/watch/${video._id}`}>{video.title}</Link>
                   </h6>
                   <p className="flex text-sm text-black dark:text-gray-200">
-                    {video.views} Views · {formatTimestamp(video.createdAt)}
+                    {video.views} Views · {formatTimestamp(video.createdAt)}
                   </p>
                   <p className="text-sm text-black dark:text-gray-200">
                     <Link to={`/user/${video.owner?.username}`} className=" hover:text-gray-300/90">

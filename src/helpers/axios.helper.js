@@ -3,7 +3,7 @@ import axios from "axios";
 // import "axios-progress-bar/dist/nprogress.css";
 
 
-const baseURL = "https://uchiha-backend.onrender.com/api/v1";
+const baseURL = "http://localhost:8000/api/v1/";
 
 export const axiosInstance = axios.create({
   baseURL,

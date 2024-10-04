@@ -14,8 +14,8 @@ function EditChannelInfo({ userData }) {
     event.preventDefault();
     let formData = new FormData(event.target);
     let linkId = event.target;
-    console.log("linkId: ", linkId);
-    console.log("formData: ", formData);
+    // console.log("linkId: ", linkId);
+    // console.log("formData: ", formData);
 
     if (linkId) dispatch(updateLink({ linkId, formData }));
     else dispatch(addLink({ formData }));
@@ -56,7 +56,7 @@ function EditChannelInfo({ userData }) {
               </label>
               <div className="flex rounded-lg border">
                 <p className="flex shrink-0 items-center border-r border-white px-3 align-middle">
-                  Uchiha-Tube/.com
+                  youtube.com/
                 </p>
                 <input
                   type="text"

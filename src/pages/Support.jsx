@@ -1,6 +1,4 @@
-import React from "react";
 import { icons } from "../assets/icons";
-import { GuestComponent } from "../components";
 
 function Support() {
   return (
@@ -26,7 +24,7 @@ function Support() {
                     target="_blank"
                     className="text-blue-500 text-sm hover:text-blue-400 "
                   >
-                    /chandan polai
+                    /Shubham Arora
                   </a>
                 </div>
               </li>
@@ -35,11 +33,11 @@ function Support() {
                 <div className="h-full">
                   <h2 className="text-lg font-bold my-0">LikedIn</h2>
                   <a
-                    href="https://www.linkedin.com/in/chandan-polai-835063270/"
+                    href="https://www.linkedin.com/in/shubham-arora-01699a231/"
                     target="_blank"
                     className="text-blue-500 text-sm hover:text-blue-400 "
                   >
-                    /chandan polai
+                    /Shubham Arora
                   </a>
                 </div>
               </li>
@@ -52,22 +50,8 @@ function Support() {
                     target="_blank"
                     className="text-blue-500 text-sm hover:text-blue-400 "
                   >
-                    /chandan polai
+                    /Shubham Arora
                   </a>
-                </div>
-              </li>
-              <li className="flex items-center">
-                <span className="w-9 h-9 rounded-full mr-4">{icons.link}</span>
-                <div className="h-full">
-                  <h2 className="text-lg font-bold my-0">Youtube</h2>
-                  <a
-                    href="https://www.youtube.com/@tgrpolai"
-                    target="_blank"
-                    className="text-blue-500 text-sm hover:text-blue-400 "
-                  >
-                    @tgrpolai
-                  </a>
-                  {/* <p className="text-blue-500 text-sm hover:text-blue-400 ">@tgrpolai</p> */}
                 </div>
               </li>
             </ul>

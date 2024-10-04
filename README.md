@@ -1,14 +1,19 @@
-# Uchiha-Tube 🎥🐦 (YouTube + Twitter)
+# TweetTube 🎥🐦 (YouTube + Twitter)
+
+**✨ Acknowledgments**
+This project was forked from the frontend repository of my friend Chandan Polai. You can find his original repository here. I would like to give him credit for his contributions.
+
+I also learned and built the backend of this project by following content from Hitesh Choudhary on his YouTube channel, Chai aur Code. His tutorials were invaluable in shaping the backend of this platform.
 
 ## Overview
 
-**Uchiha-Tube (YOUTUBE + TWITTER)** is an innovative project combining the functionality of a video hosting platform like YouTube with micro-blogging features similar to Twitter. Built on a robust tech stack including Node.js, Express.js, React.js, and MongoDB, this platform offers a seamless user experience with modern features.
+**TweetTube** is an innovative project combining the functionality of a video hosting platform like YouTube with micro-blogging features similar to Twitter. Built on a robust tech stack including Node.js, Express.js, React.js, and MongoDB, this platform offers a seamless user experience with modern features.
 
 ## 🌐 Important Links
 
 | 📄 Content               | 🔗 Link                                                                 |
 | -------------------------|------------------------------------------------------------------------|
-| 🔴 Live Link             | [click here](https://uchiha-tube.vercel.app/)                          |
+| 🔴 Live Link             | [click here]()                          |
 | 📈 Model                 | [click here](https://app.eraser.io/workspace/cATefMPkrAdzR9c6teox?origin=share) |
 
 ## 🚀 Features
@@ -76,48 +81,10 @@
 - 🔗 **Mongoose**: An Object Data Modeling (ODM) library for MongoDB and Node.js.
 - 🔒 **JWT**: JSON Web Tokens for securely transmitting information between parties as a JSON object.
 
-## 📦 Installation and Setup
+## 📞 Connect
 
-1. **Clone the repository:**
+To connect with me, please contact me on my socials.
 
-    ```bash
-    git clone https://github.com/ChandanPolai/UCHIHA-TUBE.git
-    ```
-
-2. **Install dependencies For Backend:**
-
-    ```bash
-    cd -uchiha-backend
-    npm install
-    ```
-
-2. **Install dependencies For Frontend:**
-
-    ```bash
-    cd -uchiha-frontend
-    npm install
-    ```
-
-3. **Set up environment variables:**
-    Create a `.env` file in the root of the project and fill in the required values using the `.env.sample` file.
-
-4. **Start the server:**
-
-    ```bash
-    npm run dev
-    ```
-
-## 📞 Contact
-
-For any questions or suggestions, please contact me on my socials.
-
-- [LinkedIn](https://www.linkedin.com/in/chandan-polai-835063270/)
+- [LinkedIn](https://www.linkedin.com/in/shubham-arora-01699a231/)
 
 
-## 🙏 Acknowledgments
-
-Thanks to all my instructors.
-
-## 📝 License
-
-This project is licensed under [ChaiAurCode](https://www.youtube.com/@chaiaurcode).

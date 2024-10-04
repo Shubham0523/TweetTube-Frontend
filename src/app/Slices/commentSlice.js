@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { parseErrorMessage } from "../../helpers/parseErrMsg.helper";
 import { axiosInstance } from "../../helpers/axios.helper";

@@ -180,11 +180,11 @@ function PlaylistVideos() {
                     <p className="flex justify-between">
                       <span className="inline-block">Playlist</span>
                       <span className="inline-block">
-                        {playList.videosCount} video{playList.videosCount > 1 ? "s" : ""}
+                        {playList.videosCount} video{playList.videosCount > 1 ? "s" : ""}
                       </span>
                     </p>
                     <p className="text-sm dark:text-gray-200 text-black">
-                      {playList.totalViews} view{playList.totalViews > 1 ? "s" : ""} ·{" "}
+                      {playList.totalViews} view{playList.totalViews > 1 ? "s" : ""} ·{" "}
                       {formatTimestamp(playList.createdAt)}
                     </p>
                   </div>

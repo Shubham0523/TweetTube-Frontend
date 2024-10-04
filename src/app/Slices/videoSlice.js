@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { createSlice } from "@reduxjs/toolkit";
 import { axiosInstance } from "../../helpers/axios.helper";
@@ -47,15 +48,15 @@ export const publishVideo = createAsyncThunk("video/publishVideo", async ({ data
 });
 
 export const getVideo = createAsyncThunk("video/getVideo", async (videoId) => {
-  console.log("thi is vidoeis",videoId)
+  // console.log("VideoId",videoId)
   try {
     const response = await axiosInstance.get(`/videos/${videoId}`);
-    console.log("video response",response)
+    // console.log("video response",response)
     // toast.success(response.data.message);
     return response.data.data;
   } catch (error) {
     toast.error(parseErrorMessage(error.response.data));
-    console.log("kya error he",error);
+    console.log("error",error);
     throw error;
   }
 });
@@ -131,9 +132,20 @@ const videoSlice = createSlice({
   initialState,
   reducers: {
     emptyVideosState: (state, action) => {
-      console.log("state.data: ", state.data);
+      // console.log("state.data: ", state.data);
       state.data = null;
-      console.log("state.data: ", state.data);
+    },
+    // To handle like updates
+    updateLikeStatus: (state, action) => {
+      if (state.data && state.data._id === action.payload.videoId) {
+        state.data = {
+          ...state.data,
+          isLiked: action.payload.isLiked,
+          totalLikes: action.payload.totalLikes,
+          isDisLiked: action.payload.isDisLiked,
+          totalDisLikes: action.payload.totalDisLikes,
+        };
+      }
     },
   },
   extraReducers: (builder) => {

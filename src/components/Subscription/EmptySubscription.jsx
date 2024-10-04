@@ -1,7 +1,6 @@
-import React from "react";
 function EmptySubscription() {
   return (
-    <div className="flex justify-center p-4">
+    <div className="flex justify-center p-4 ml-10">
       <div className="w-full max-w-sm text-center">
         <p className="mb-3 w-full">
           <span className="inline-flex rounded-full  dark:bg-[#E4D3FF] bg-red-700 p-2 text-red-500 dark:text-[#AE7AFF]">

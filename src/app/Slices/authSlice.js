@@ -63,6 +63,17 @@ export const changePassword = createAsyncThunk("auth/changePassword", async (dat
 
 // TODO: Refresh Access Token
 
+export const refreshAccessToken = createAsyncThunk("auth/refresh-token", async (_, { rejectWithValue }) => {
+  try {
+    const response = await axiosInstance.post("/users/refresh-token");
+    console.log("refreshAccessToken response:", response);
+    return response.data.data.accessToken;
+  } catch (error) {
+    console.error("refreshAccessToken error:", error);
+    return rejectWithValue(parseErrorMessage(error.response?.data || error));
+  }
+});
+
 export const updateProfile = createAsyncThunk("auth/updateProfile", async (data) => {
   try {
     const response = await axiosInstance.patch("/users/update-profile", data, {
@@ -245,6 +256,20 @@ const authSlice = createSlice({
       state.loading = false;
     });
 
+    //Refresh accessToken
+    builder.addCase(refreshAccessToken.pending, (state) => {
+      state.loading = true;
+    });
+    builder.addCase(refreshAccessToken.fulfilled, (state, action) => {
+      state.loading = false;
+      if (state.userData) {
+        state.userData.accessToken = action.payload;
+      }
+    });
+    builder.addCase(refreshAccessToken.rejected, (state) => {
+      state.loading = false;
+    });
+
     //update Profile
     builder.addCase(updateProfile.pending, (state) => {
       state.loading = true;
@@ -319,19 +344,45 @@ const authSlice = createSlice({
     });
 
     //Add Link
-    builder.addCase(addLink.pending, (state) => {});
-    builder.addCase(addLink.fulfilled, (state, action) => {});
-    builder.addCase(addLink.rejected, (state) => {});
+    builder.addCase(addLink.pending, (state) => {
+      state.loading = true;
+    });
+    builder.addCase(addLink.fulfilled, (state, action) => {
+      state.loading = false;
+      // Assuming links are stored in state.userData.links
+      state.userData.links = [...state.userData.links, action.payload]; // Add new link to the list
+    });
+    builder.addCase(addLink.rejected, (state) => {
+      state.loading = false;
+    });
 
     //Update Link
-    builder.addCase(updateLink.pending, (state) => {});
-    builder.addCase(updateLink.fulfilled, (state, action) => {});
-    builder.addCase(updateLink.rejected, (state) => {});
+    builder.addCase(updateLink.pending, (state) => {
+      state.loading = true;
+    });
+    builder.addCase(updateLink.fulfilled, (state, action) => {
+      state.loading = false;
+      // Update the specific link by its ID
+      state.userData.links = state.userData.links.map(link =>
+        link.id === action.payload.id ? action.payload : link
+      );
+    });
+    builder.addCase(updateLink.rejected, (state) => {
+      state.loading = false;
+    });
 
     //Delete Link
-    builder.addCase(deleteLink.pending, (state) => {});
-    builder.addCase(deleteLink.fulfilled, (state, action) => {});
-    builder.addCase(deleteLink.rejected, (state) => {});
+    builder.addCase(deleteLink.pending, (state) => {
+      state.loading = true;
+    });
+    builder.addCase(deleteLink.fulfilled, (state, action) => {
+      state.loading = false;
+      // Remove the deleted link from the list by filtering it out
+      state.userData.links = state.userData.links.filter(link => link.id !== action.payload.id);
+    });
+    builder.addCase(deleteLink.rejected, (state) => {
+      state.loading = false
+    });
   },
 });
 

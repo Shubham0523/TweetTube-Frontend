@@ -1,7 +1,6 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { parseErrorMessage } from "../../helpers/parseErrMsg.helper";
 import { axiosInstance } from "../../helpers/axios.helper";
-import { createSlice } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
 
 const initialState = {
@@ -10,27 +9,48 @@ const initialState = {
   data: null,
 };
 
+// Action Creators
 export const getLikedVideos = createAsyncThunk("like/getLikedVideos", async () => {
   try {
     const response = await axiosInstance.get(`/like/videos`);
-    //toast.success(response.data.message);
     return response.data.data;
   } catch (error) {
     toast.error(parseErrorMessage(error.response.data));
-    console.log(error);
+    throw error;
   }
 });
 
-export const toggleLike = createAsyncThunk("like/toggleLike", async ({ qs, toggleLike }) => {
-  try {
-    const response = await axiosInstance.patch(`/like?toggleLike=${toggleLike}&${qs}`);
-    //toast.success(response.data.message);
-    return response.data.data;
-  } catch (error) {
-    toast.error(parseErrorMessage(error.response.data));
-    console.log(error);
+export const toggleLike = createAsyncThunk(
+  "like/toggleLike",
+  async ({ qs, toggleLike }, { dispatch }) => {
+    try {
+      const response = await axiosInstance.patch(`/like?toggleLike=${toggleLike}&${qs}`);
+      
+      // Extract video data from response
+      const responseData = response.data.data;
+      
+      // Dispatch video state update if it's a video like
+      if (qs.includes('videoId')) {
+        dispatch({
+          type: 'video/updateLikeStatus',
+          payload: {
+            videoId: responseData.videoId || qs.split('=')[1], // Fallback to query param if needed
+            isLiked: responseData.isLiked,
+            totalLikes: responseData.totalLikes,
+            isDisLiked: responseData.isDisLiked,
+            totalDisLikes: responseData.totalDisLikes
+          }
+        });
+      }
+      
+      return responseData;
+    } catch (error) {
+      toast.error(parseErrorMessage(error.response.data));
+      throw error;
+    }
   }
-});
+);
+
 export const toggleCommentLike = createAsyncThunk(
   "like/toggleCommentLike",
   async ({ commentId, toggleLike }) => {
@@ -38,40 +58,51 @@ export const toggleCommentLike = createAsyncThunk(
       const response = await axiosInstance.patch(
         `/like/comment/${commentId}?toggleLike=${toggleLike}`
       );
-      //toast.success(response.data.message);
       return response.data.data;
     } catch (error) {
       toast.error(parseErrorMessage(error.response.data));
-      console.log(error);
+      throw error;
     }
   }
 );
 
-export const toggleTweetLike = createAsyncThunk("like/toggleTweetLike", async (tweetId) => {
-  try {
-    const response = await axiosInstance.patch(`/like/tweet/${tweetId}`);
-    //toast.success(response.data.message);
-    return response.data.data;
-  } catch (error) {
-    toast.error(parseErrorMessage(error.response.data));
-    console.log(error);
+export const toggleTweetLike = createAsyncThunk(
+  "like/toggleTweetLike", 
+  async (tweetId) => {
+    try {
+      const response = await axiosInstance.patch(`/like/tweet/${tweetId}`);
+      return response.data.data;
+    } catch (error) {
+      toast.error(parseErrorMessage(error.response.data));
+      throw error;
+    }
   }
-});
+);
 
-export const toggleVideoLike = createAsyncThunk("like/toggleVideoLike", async (videoId) => {
-  try {
-    const response = await axiosInstance.patch(`/like/video/${videoId}`);
-    //toast.success(response.data.message);
-    return response.data.data;
-  } catch (error) {
-    toast.error(parseErrorMessage(error.response.data));
-    console.log(error);
+export const toggleVideoLike = createAsyncThunk(
+  "like/toggleVideoLike", 
+  async (videoId) => {
+    try {
+      const response = await axiosInstance.patch(`/like/video/${videoId}`);
+      return response.data.data;
+    } catch (error) {
+      toast.error(parseErrorMessage(error.response.data));
+      throw error;
+    }
   }
-});
+);
 
 const likeSlice = createSlice({
   name: "like",
   initialState,
+  reducers: {
+    // Add any synchronous reducers here if needed
+    resetLikeState: (state) => {
+      state.loading = false;
+      state.status = false;
+      state.data = null;
+    },
+  },
   extraReducers: (builder) => {
     // get Liked Videos
     builder.addCase(getLikedVideos.pending, (state) => {
@@ -90,8 +121,8 @@ const likeSlice = createSlice({
 
     // toggle like
     builder.addCase(toggleLike.pending, (state) => {
+      // Don't clear data on pending to maintain optimistic updates
       state.loading = true;
-      state.data = null;
     });
     builder.addCase(toggleLike.fulfilled, (state, action) => {
       state.loading = false;
@@ -106,7 +137,6 @@ const likeSlice = createSlice({
     // toggle Comment Like
     builder.addCase(toggleCommentLike.pending, (state) => {
       state.loading = true;
-      state.data = null;
     });
     builder.addCase(toggleCommentLike.fulfilled, (state, action) => {
       state.loading = false;
@@ -118,7 +148,7 @@ const likeSlice = createSlice({
       state.status = false;
     });
 
-    // toggle TweetLike
+    // toggle Tweet Like
     builder.addCase(toggleTweetLike.pending, (state) => {
       state.loading = true;
     });
@@ -148,4 +178,5 @@ const likeSlice = createSlice({
   },
 });
 
+export const { resetLikeState } = likeSlice.actions;
 export default likeSlice.reducer;

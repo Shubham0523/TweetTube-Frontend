@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      "/api": "https://uchiha-backend.onrender.com/api/v1",
+      "/api": "http://localhost:8000/api/v1/",
     },
   },
 });

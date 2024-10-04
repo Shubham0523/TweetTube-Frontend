@@ -166,7 +166,7 @@ function Header() {
         {/* Responsive Mobile View list */}
         <div className="fixed  inset-y-0 right-0 flex w-full max-w-xs shrink-0 translate-x-full flex-col border-l dark:border-white dark:bg-[#121212] bg-white border-red-300 duration-200 hover:translate-x-0 peer-focus:translate-x-0 sm:static sm:ml-4 sm:w-auto sm:translate-x-0 sm:border-none">
           <div className="relative flex w-full items-center justify-between border-b dark:border-white border-red-300 px-4 py-2 sm:hidden">
-            <span className="inline-block w-12">
+            <span className="inline-block w-12h">
               <Link to="/" >
                 <img src={some} alt="" />
               </Link>
