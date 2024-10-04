@@ -1,9 +1,9 @@
 # TweetTube 🎥🐦 (YouTube + Twitter)
 
 **✨ Acknowledgments**
-This project was forked from the frontend repository of my friend Chandan Polai. You can find his original repository [here](https://github.com/ChandanPolai/UCHIHA-FRONTEND). I would like to give him credit for his contributions.
+This project was cloned from my friend Chandan Polai's frontend repository. You can find his original repository [here](https://github.com/ChandanPolai/UCHIHA-FRONTEND). I want to give him credit for his contributions.
 
-I also learned and built the backend of this project by following content from Hitesh Choudhary on his YouTube channel, Chai aur Code. His tutorials were invaluable in shaping the backend of this platform.
+I also learned and built this project's backend by following Hitesh Choudhary's content on his YouTube channel, Chai aur Code. His tutorials were invaluable in shaping the backend of this platform.
 
 ## Overview
 
@@ -13,7 +13,7 @@ I also learned and built the backend of this project by following content from H
 
 | 📄 Content               | 🔗 Link                                                                 |
 | -------------------------|------------------------------------------------------------------------|
-| 🔴 Live Link             | [click here]()                          |
+| 🔴 Live Link             | [click here](https://tweet-tube-frontend.vercel.app/)                          |
 | 📈 Model                 | [click here](https://app.eraser.io/workspace/cATefMPkrAdzR9c6teox?origin=share) |
 
 ## 🚀 Features
