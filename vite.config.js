@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      "/api": "https://tweettube.onrender.com/",
+      "/api": "https://tweettube.onrender.com/api/v1/",
     },
   },
 });
