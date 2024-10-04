@@ -1,7 +1,7 @@
 # TweetTube 🎥🐦 (YouTube + Twitter)
 
 **✨ Acknowledgments**
-This project was forked from the frontend repository of my friend Chandan Polai. You can find his original repository here. I would like to give him credit for his contributions.
+This project was forked from the frontend repository of my friend Chandan Polai. You can find his original repository [here](https://github.com/ChandanPolai/UCHIHA-FRONTEND). I would like to give him credit for his contributions.
 
 I also learned and built the backend of this project by following content from Hitesh Choudhary on his YouTube channel, Chai aur Code. His tutorials were invaluable in shaping the backend of this platform.
 
