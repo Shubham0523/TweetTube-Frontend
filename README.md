@@ -81,6 +81,13 @@ I also learned and built this project's backend by following Hitesh Choudhary's 
 - 🔗 **Mongoose**: An Object Data Modeling (ODM) library for MongoDB and Node.js.
 - 🔒 **JWT**: JSON Web Tokens for securely transmitting information between parties as a JSON object.
 
+## 🔄 Updates I Made:
+- Updated Cloudinary util file to support uploading large video files.
+- Added action and state management for refreshAccessToken to handle token expiration.
+- Fixed subscribers and mySubscriptions pages, which previously showed no data. I corrected the Redux state to properly fetch and display data from the backend.
+- Resolved an issue with the like count on the video component, which was not displaying correctly. I fixed this in both the likeSlice and the likes component to ensure accurate counting.
+- Corrected minor typos throughout the project to ensure consistency and readability.
+
 ## 📞 Connect
 
 To connect with me, please contact me on my socials.
