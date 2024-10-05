@@ -20,7 +20,7 @@ function Support() {
                 <div className="h-full">
                   <h2 className="text-lg font-bold my-0">Twitter</h2>
                   <a
-                    href=" https://x.com/Chandanpolai26?t=lLvLSTy_wm4IZkGItPScZw&s=08"
+                    href="https://x.com/Shubham_2306"
                     target="_blank"
                     className="text-blue-500 text-sm hover:text-blue-400 "
                   >
@@ -46,7 +46,7 @@ function Support() {
                 <div className="h-full">
                   <h2 className="text-lg font-bold my-0">GitHub</h2>
                   <a
-                    href="https://github.com/ChandanPolai"
+                    href="https://github.com/Shubham0523"
                     target="_blank"
                     className="text-blue-500 text-sm hover:text-blue-400 "
                   >
