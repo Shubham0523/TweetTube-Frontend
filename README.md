@@ -1,9 +1,9 @@
 # TweetTube 🎥🐦 (YouTube + Twitter)
 
 **✨ Acknowledgments**
-This project was forked from the frontend repository of my friend Chandan Polai. You can find his original repository [here](https://github.com/ChandanPolai/UCHIHA-FRONTEND). I would like to give him credit for his contributions.
+This project was cloned from my friend Chandan Polai's frontend repository. You can find his original repository [here](https://github.com/ChandanPolai/UCHIHA-FRONTEND). I want to give him credit for his contributions.
 
-I also learned and built the backend of this project by following content from Hitesh Choudhary on his YouTube channel, Chai aur Code. His tutorials were invaluable in shaping the backend of this platform.
+I also learned and built this project's backend by following Hitesh Choudhary's content on his YouTube channel, Chai aur Code. His tutorials were invaluable in shaping the backend of this platform.
 
 ## Overview
 
@@ -13,7 +13,7 @@ I also learned and built the backend of this project by following content from H
 
 | 📄 Content               | 🔗 Link                                                                 |
 | -------------------------|------------------------------------------------------------------------|
-| 🔴 Live Link             | [click here]()                          |
+| 🔴 Live Link             | [click here](https://tweet-tube-frontend.vercel.app/)                          |
 | 📈 Model                 | [click here](https://app.eraser.io/workspace/cATefMPkrAdzR9c6teox?origin=share) |
 
 ## 🚀 Features
@@ -80,6 +80,13 @@ I also learned and built the backend of this project by following content from H
 - 🗄️ **MongoDB**: A NoSQL database used for storing application data.
 - 🔗 **Mongoose**: An Object Data Modeling (ODM) library for MongoDB and Node.js.
 - 🔒 **JWT**: JSON Web Tokens for securely transmitting information between parties as a JSON object.
+
+## 🔄 Updates I Made:
+- Updated Cloudinary util file to support uploading large video files.
+- Added action and state management for refreshAccessToken to handle token expiration.
+- Fixed subscribers and mySubscriptions pages, which previously showed no data. I corrected the Redux state to properly fetch and display data from the backend.
+- Resolved an issue with the like count on the video component, which was not displaying correctly. I fixed this in both the likeSlice and the likes component to ensure accurate counting.
+- Corrected minor typos throughout the project to ensure consistency and readability.
 
 ## 📞 Connect
 
